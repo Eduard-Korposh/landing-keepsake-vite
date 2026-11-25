@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--works-grid-gap);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

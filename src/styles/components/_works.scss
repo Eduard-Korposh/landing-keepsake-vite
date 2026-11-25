@@ -1,0 +1,86 @@
+@use 'sass:list';
+@use '../abstracts' as *;
+
+.works {
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 22px;
+
+    @include mq(md) {
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__chips {
+    display: flex;
+    gap: 8px;
+    margin-right: calc(-1 * var(--container-pad));
+    padding-right: var(--container-pad);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    @include mq(md) {
+      margin-right: 0;
+      padding-right: 0;
+      overflow-x: visible;
+    }
+  }
+
+  @each $category in list.join(all, $work-categories) {
+    &__filter--#{$category}:checked ~ &__head .chip--#{$category} {
+      color: var(--color-white);
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    &__filter--#{$category}:focus-visible ~ &__head .chip--#{$category} {
+      @include focus-ring;
+    }
+  }
+
+  @each $category in $work-categories {
+    &__filter--#{$category}:checked
+      ~ .works-grid
+      .works-grid__item:not([data-category='#{$category}']) {
+      display: none;
+    }
+  }
+
+  &__filter--all:checked ~ .works-grid .works-grid__item:nth-child(n + 6) {
+    display: none;
+
+    @include mq(md) {
+      display: block;
+    }
+  }
+
+  &__filter--all:checked ~ .works-grid .works-grid__item:nth-child(n + 9) {
+    @include mq(md) {
+      display: none;
+    }
+
+    @include mq(lg) {
+      display: block;
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    padding-top: 28px;
+  }
+
+  &__more-button {
+    width: 100%;
+
+    @include mq(md) {
+      width: auto;
+    }
+  }
+}

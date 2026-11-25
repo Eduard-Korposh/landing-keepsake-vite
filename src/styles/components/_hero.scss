@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.hero {
+  padding-block: var(--hero-pad);
+  background-color: var(--color-bg-light);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap);
+  }
+
+  &__title {
+    @include caps(var(--font-size-hero), var(--line-height-hero), var(--letter-spacing-display));
+
+    margin-right: calc(-1 * var(--letter-spacing-display));
+    font-weight: 300;
+    color: var(--color-text-dark);
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 12px;
+    }
+  }
+}

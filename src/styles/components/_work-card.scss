@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+.work-card {
+  display: grid;
+  overflow: hidden;
+  color: var(--color-white);
+  text-decoration: none;
+
+  &__picture,
+  &__overlay {
+    grid-area: 1 / 1;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--card-ratio);
+    object-fit: cover;
+  }
+
+  &__overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--color-overlay);
+    opacity: 0;
+  }
+
+  &:hover &__overlay,
+  &:focus-visible &__overlay {
+    opacity: 1;
+  }
+
+  &__plus {
+    @include flex-center;
+
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-teal);
+    border-radius: 50%;
+  }
+
+  &__title {
+    @include caps(rem(17), 25px);
+  }
+
+  &__line {
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-accent);
+  }
+
+  &__category {
+    font-size: rem(13);
+    line-height: 18px;
+    color: var(--color-teal);
+  }
+}
