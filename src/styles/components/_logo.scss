@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-logo);
+  font-size: var(--font-size-logo);
+  font-weight: 700;
+  line-height: var(--line-height-logo);
+  color: var(--color-text-dark);
+  text-decoration: none;
+
+  &__mark {
+    @include flex-center;
+
+    flex-shrink: 0;
+    width: var(--logo-mark-size);
+    height: var(--logo-mark-size);
+    color: var(--color-white);
+    background-color: var(--color-text-dark);
+    border-radius: 50%;
+  }
+}

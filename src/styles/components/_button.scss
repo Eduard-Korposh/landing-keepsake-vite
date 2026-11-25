@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.button {
+  @include flex-center(inline-flex);
+  @include caps(var(--font-size-control), 19px, var(--letter-spacing-control));
+
+  gap: 8px;
+  height: var(--button-height);
+  padding: 0 20px;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+
+  &--primary {
+    color: var(--color-white);
+    background-color: var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    color: var(--color-text-dark);
+    background-color: var(--color-bg);
+    border-color: var(--color-border-strong);
+
+    &:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+  }
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--tall {
+    height: var(--button-tall-height);
+  }
+}

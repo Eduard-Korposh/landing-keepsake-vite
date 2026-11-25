@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.favourites-button {
+  @include flex-center;
+  @include button-reset;
+
+  width: 36px;
+  height: 36px;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+  }
+}

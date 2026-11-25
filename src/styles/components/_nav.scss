@@ -1,0 +1,19 @@
+@use '../abstracts' as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-gap);
+
+  &__link {
+    @include caps(var(--font-size-control), 19px);
+
+    color: var(--color-text-dark);
+    text-decoration: none;
+
+    &:hover,
+    &--active {
+      color: var(--color-accent);
+    }
+  }
+}
