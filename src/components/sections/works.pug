@@ -1,0 +1,22 @@
+//- Радіокнопки стоять перед .works__head і .works-grid, щоб працював селектор :checked ~
+section#works.section(aria-labelledby='works-title')
+  .container
+    each category in categories
+      input.visually-hidden.works__filter(
+        class=`works__filter--${category.id}`,
+        type='radio',
+        name='work-filter',
+        id=`filter-${category.id}`,
+        checked=category.checked
+      )
+    .works__head
+      h2#works-title.section-title Our awesome works
+      .works__chips
+        each category in categories
+          label.chip(class=`chip--${category.id}`, for=`filter-${category.id}`)= category.label
+    ul.works-grid
+      each work in works
+        li.works-grid__item(data-category=work.category)
+          +work-card(work)
+    .works__more
+      +btn('Load more works', null, 'secondary').works__more-button

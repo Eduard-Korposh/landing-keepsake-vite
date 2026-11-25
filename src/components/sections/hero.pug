@@ -1,0 +1,9 @@
+section#home.hero(aria-labelledby='hero-title')
+  .container.hero__inner
+    h1#hero-title.hero__title We're #{ site.name }, a digital &amp; branding agency
+    p.text-body
+      | Specializing in web design, poster, motion video, based in London. We love to turn ideas
+      | into beautiful things.
+    .hero__actions
+      +btn('See our works', '#works', 'primary')
+      +btn('Get in touch', '#contact', 'secondary')
