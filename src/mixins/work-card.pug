@@ -1,0 +1,19 @@
+mixin work-card(work)
+  - const category = work.category.charAt(0).toUpperCase() + work.category.slice(1);
+  a.work-card(href='#works')
+    +picture(work.image, {
+      alt: work.alt,
+      widths: [400, 715],
+      sizes:
+        '(min-width: 1280px) 358px, (min-width: 768px) calc(50vw - 46px), calc(100vw - 40px)',
+      width: 715,
+      height: 564,
+      pictureClass: 'work-card__picture',
+      imgClass: 'work-card__img',
+    })
+    span.work-card__overlay
+      span.work-card__plus
+        +icon('plus')
+      span.work-card__title= work.title
+      span.work-card__line
+      span.work-card__category #{ category }

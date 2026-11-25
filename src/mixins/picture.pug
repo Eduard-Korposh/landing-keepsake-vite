@@ -1,0 +1,12 @@
+//- widths — ширини згенерованих файлів (npm run images), найбільша йде в src
+mixin picture(name, options)
+  - const { alt = '', widths, sizes, width, height, eager = false, fallback = 'jpg', pictureClass, imgClass } = options;
+  - const path = '/src/assets/images';
+  - const srcset = (format) => widths.map((w) => `${path}/${name}-${w}.${format} ${w}w`).join(', ');
+  - const img = { class: imgClass, src: `${path}/${name}-${widths.at(-1)}.${fallback}`, alt, width, height, decoding: 'async' };
+  unless eager
+    - img.loading = 'lazy';
+  picture(class=pictureClass)
+    source(type='image/avif', srcset=srcset('avif'), sizes=sizes)
+    source(type='image/webp', srcset=srcset('webp'), sizes=sizes)
+    img&attributes(img)
