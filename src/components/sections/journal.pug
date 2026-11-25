@@ -1,0 +1,25 @@
+section#journal.section.journal(aria-labelledby='journal-title')
+  .container.section__stack
+    h2#journal-title.section-title From the journal
+    p.text-body Notes on process, case studies and things that inspire us.
+    .posts
+      each post in posts
+        article.post
+          +picture(post.image, {
+            widths: [150, 300],
+            sizes: '(min-width: 768px) 150px, 96px',
+            width: 300,
+            height: 300,
+            pictureClass: 'post__picture',
+            imgClass: 'post__thumb',
+          })
+          .post__body
+            p.post__meta
+              time(datetime=post.date)= post.dateLabel
+              span.post__divider(aria-hidden='true') /
+              | #{ post.category }
+            h3.post__title= post.title
+            p.post__excerpt= post.excerpt || postExcerpt
+            a.read-more(href='#journal')
+              | Read more
+              +icon('arrow-right')
