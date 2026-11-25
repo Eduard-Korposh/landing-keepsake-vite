@@ -1,0 +1,13 @@
+.page {
+  scroll-padding-top: var(--header-height);
+  text-size-adjust: 100%;
+
+  &__body {
+    padding-top: var(--header-height);
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+}
