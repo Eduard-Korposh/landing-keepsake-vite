@@ -1,0 +1,97 @@
+@use '../abstracts' as *;
+
+.site-footer {
+  padding: 48px 0 28px;
+  color: var(--color-footer-text);
+  background-color: var(--color-footer);
+
+  @include mq(md) {
+    padding: 64px 0 32px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding-bottom: 12px;
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    gap: 20px;
+
+    @include mq(md) {
+      gap: 32px;
+    }
+
+    @include mq(lg) {
+      gap: 60px;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+
+    @include mq(md) {
+      flex: 0 0 140px;
+    }
+
+    @include mq(lg) {
+      flex-basis: 180px;
+    }
+  }
+
+  &__title {
+    @include caps(rem(14), 21px);
+
+    color: var(--color-white);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    line-height: 20px;
+  }
+
+  &__link {
+    font-size: rem(14);
+    color: var(--color-footer-link);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-footer-divider);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    font-size: var(--font-size-copyright);
+    line-height: var(--line-height-copyright);
+    color: var(--color-footer-muted);
+  }
+}
