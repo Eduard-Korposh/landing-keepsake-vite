@@ -1,0 +1,34 @@
+@use '../abstracts' as *;
+
+.service {
+  display: flex;
+  flex: 1 1 calc(50% - 12px);
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+
+  @include mq(lg) {
+    flex-basis: calc(25% - 18px);
+  }
+
+  &__icon {
+    @include flex-center;
+
+    width: var(--service-icon-size);
+    height: var(--service-icon-size);
+    background-color: var(--color-bg-light);
+    border-radius: 50%;
+  }
+
+  &__title {
+    @include caps(rem(15), 22px);
+
+    color: var(--color-text-dark);
+  }
+
+  &__text {
+    font-size: var(--font-size-service-text);
+    line-height: var(--line-height-body);
+  }
+}

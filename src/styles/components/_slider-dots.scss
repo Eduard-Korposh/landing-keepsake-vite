@@ -1,0 +1,16 @@
+.slider-dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+
+  &__dot {
+    width: 8px;
+    height: 4px;
+    background-color: var(--color-dot);
+
+    &--active {
+      width: 24px;
+      background-color: var(--color-accent);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap);
+  padding: 28px 24px;
+  background-color: var(--color-bg-light);
+
+  @include mq(md) {
+    padding: 40px 48px;
+  }
+
+  &__mark {
+    margin-block: 12px 11px;
+    color: var(--color-accent);
+  }
+
+  &__quote {
+    font-size: var(--font-size-quote);
+    font-weight: 300;
+    line-height: var(--line-height-quote);
+    color: var(--color-text-dark);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  &__avatar {
+    @include flex-center;
+
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    font-family: var(--font-heading);
+    font-size: rem(17);
+    line-height: 25px;
+    color: var(--color-white);
+    background-color: var(--color-teal);
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__name {
+    @include caps(rem(14), 21px);
+
+    color: var(--color-text-dark);
+  }
+
+  &__role {
+    font-size: rem(13);
+    line-height: 18px;
+    color: var(--color-muted);
+  }
+}

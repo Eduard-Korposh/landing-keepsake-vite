@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.client-logos {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    @include flex-center;
+
+    flex: 0 0 50%;
+    height: 72px;
+
+    @include mq(md) {
+      flex-basis: calc(100% / 3);
+    }
+
+    @include mq(lg) {
+      flex-basis: calc(100% / 6);
+    }
+  }
+
+  &__img {
+    display: block;
+  }
+}
