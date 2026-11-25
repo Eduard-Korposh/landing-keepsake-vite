@@ -1,0 +1,13 @@
+//- +btn('Текст', '#href', 'primary', 'wide') — без href виводиться <button>
+mixin btn(text, href, ...modifiers)
+  - const classes = ['button', ...modifiers.map((modifier) => `button--${modifier}`)];
+  if href
+    a(class=classes, href=href)&attributes(attributes)
+      if block
+        block
+      = text
+  else
+    button(class=classes, type='button')&attributes(attributes)
+      if block
+        block
+      = text
