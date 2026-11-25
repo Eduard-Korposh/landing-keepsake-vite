@@ -1,0 +1,32 @@
+#mobile-menu.mobile-menu(popover)
+  .mobile-menu__header
+    +logo(site.name)
+    button.mobile-menu__close(
+      type='button',
+      popovertarget='mobile-menu',
+      popovertargetaction='hide',
+      aria-controls='mobile-menu',
+      aria-label='Close menu'
+    )
+      +icon('close')
+  nav(aria-label='Mobile')
+    ul.mobile-menu__list
+      each item in navigation
+        li
+          a.mobile-menu__link(
+            class={ 'mobile-menu__link--active': item.active },
+            href=item.href,
+            aria-current=item.active ? 'page' : false
+          )
+            | #{ item.label }
+            +icon('chevron').mobile-menu__chevron
+  .mobile-menu__actions
+    +btn('Contact us', '#contact', 'primary', 'wide', 'tall')
+      +icon('mail')
+    +btn('Favourites', null, 'secondary', 'wide', 'tall')
+      +icon('heart').text-accent(width='13', height='12')
+  .mobile-menu__contacts
+    p.mobile-menu__label Say hello
+    a.mobile-menu__contact(href=`mailto:${site.email}`)= site.email
+    a.mobile-menu__contact(href=`tel:${site.phone.replaceAll(' ', '')}`)= site.phone
+    +socials(socials).socials--menu

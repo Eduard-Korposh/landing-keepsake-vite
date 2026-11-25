@@ -1,0 +1,15 @@
+footer#contact.site-footer
+  .container
+    .site-footer__top
+      .site-footer__columns
+        each column in footerColumns
+          nav.site-footer__column(aria-labelledby=`footer-${column.id}-title`)
+            h2.site-footer__title(id=`footer-${column.id}-title`)= column.title
+            ul.site-footer__list
+              each link in column.links
+                li
+                  a.site-footer__link(href=link.href)= link.label
+      include newsletter
+    .site-footer__bottom
+      p.site-footer__copyright © #{ site.year } #{ site.name }. All rights reserved.
+      +socials(socials)

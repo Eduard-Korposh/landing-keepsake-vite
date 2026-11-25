@@ -12,6 +12,10 @@ html.page(lang='en')
     block styles
       link(rel='stylesheet', href='/src/styles/main.scss')
   body.page__body
+    include /components/header
+    include /components/mobile-menu
     main
       block content
+    include /components/footer
+    include /components/back-to-top
     block scripts

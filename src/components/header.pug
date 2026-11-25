@@ -1,0 +1,22 @@
+header.site-header
+  .container.site-header__inner
+    +logo(site.name)
+    .site-header__nav
+      nav(aria-label='Main')
+        ul.nav
+          each item in navigation
+            li
+              a.nav__link(
+                class={ 'nav__link--active': item.active },
+                href=item.href,
+                aria-current=item.active ? 'page' : false
+              )= item.label
+      button.favourites-button(type='button', aria-label='Favourites')
+        +icon('heart')
+    button.burger(
+      type='button',
+      popovertarget='mobile-menu',
+      aria-controls='mobile-menu',
+      aria-label='Open menu'
+    )
+      +icon('burger')

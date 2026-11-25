@@ -1,0 +1,24 @@
+.newsletter
+  h2.site-footer__title Newsletter
+  p.newsletter__text Fresh case studies and design notes, once a month.
+  form.newsletter__form(action='#newsletter-success')
+    .newsletter__field
+      label.visually-hidden(for='newsletter-email') Email address
+      input#newsletter-email.newsletter__input(
+        type='email',
+        placeholder='Your email address',
+        pattern='[^@\\s]+@[^@\\s]+\\.[^@\\s]+',
+        required,
+        aria-describedby='newsletter-error'
+      )
+      +btn('Subscribe', null, 'primary').newsletter__button(type='submit')
+    p#newsletter-error.newsletter__error Please enter a valid email address.
+    label.newsletter__consent
+      input.newsletter__checkbox(type='checkbox', required)
+      | I agree to the privacy policy
+  #newsletter-success.newsletter__success
+    p.newsletter__message
+      span.newsletter__icon
+        +icon('check')
+      | You're in! Check your inbox to confirm.
+    p.newsletter__note One email a month. No spam, unsubscribe anytime.
