@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.socials {
+  display: flex;
+  gap: 10px;
+
+  @include mq(md) {
+    gap: 8px;
+  }
+
+  @include mq(lg) {
+    gap: 10px;
+  }
+
+  &--menu {
+    padding-top: 6px;
+
+    @include mq(md) {
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    @include flex-center;
+
+    width: var(--social-size);
+    height: var(--social-size);
+    font-family: var(--font-body);
+    font-size: rem(12);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 50%;
+
+    @each $name in $socials {
+      &--#{$name} {
+        background-color: var(--color-#{$name});
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.back-to-top {
+  @include flex-center;
+
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 5;
+  width: var(--back-to-top-size);
+  height: var(--back-to-top-size);
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 6px 16px var(--color-accent-shadow);
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+  }
+}

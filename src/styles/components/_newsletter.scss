@@ -1,0 +1,152 @@
+@use '../abstracts' as *;
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  order: -1;
+  gap: 14px;
+
+  @include mq(md) {
+    flex: 0 1 330px;
+    order: 0;
+  }
+
+  @include mq(lg) {
+    flex-basis: 420px;
+  }
+
+  &__text {
+    font-size: rem(14);
+    line-height: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include mq(md) {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    min-width: 0;
+    height: var(--field-height);
+    padding: 0 14px;
+    font-family: var(--font-body);
+    font-size: rem(14);
+    color: var(--color-white);
+    background-color: var(--color-footer-field);
+    border: 1px solid var(--color-footer-field-border);
+    border-radius: 0;
+
+    &::placeholder {
+      color: var(--color-footer-text);
+    }
+
+    &:focus {
+      border-color: var(--color-teal);
+      outline: none;
+    }
+
+    &:user-invalid {
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__button {
+    flex-shrink: 0;
+    height: var(--field-height);
+  }
+
+  &__error {
+    display: none;
+    font-size: var(--font-size-small);
+    line-height: 16px;
+    color: var(--color-accent);
+  }
+
+  &__form:has(&__input:user-invalid) &__error {
+    display: block;
+  }
+
+  &__consent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size-small);
+    line-height: 16px;
+    color: var(--color-footer-muted);
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid var(--color-footer-checkbox);
+    border-radius: 0;
+    appearance: none;
+    cursor: pointer;
+
+    &:checked {
+      background-color: var(--color-teal);
+      border-color: var(--color-teal);
+    }
+  }
+
+  &__success {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+
+    &:target {
+      display: flex;
+    }
+  }
+
+  &:has(&__success:target) &__text,
+  &:has(&__success:target) &__form {
+    display: none;
+  }
+
+  &__message {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 96px;
+    padding: 0 14px;
+    font-size: rem(14);
+    line-height: 19px;
+    color: var(--color-white);
+    background-color: var(--color-teal-soft);
+    border: 1px solid var(--color-teal);
+  }
+
+  &__icon {
+    @include flex-center;
+
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-teal);
+    border-radius: 50%;
+  }
+
+  &__note {
+    font-size: var(--font-size-small);
+    line-height: 16px;
+    color: var(--color-footer-muted);
+  }
+}

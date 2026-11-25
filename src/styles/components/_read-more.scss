@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.read-more {
+  @include caps(var(--font-size-small), 18px);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
+  text-decoration: none;
+}
